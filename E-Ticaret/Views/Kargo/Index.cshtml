@@ -1,0 +1,44 @@
+﻿@using E_Ticaret.Models.Siniflar
+@model List<KargoDetay>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("Index", "Kargo", FormMethod.Get))
+{
+    <p>
+        Kargo Takip Numarası: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Personel</th>
+        <th>Alıcı</th>
+        <th>Takip Kodu</th>
+        <th>Tarih</th>
+        <th>Detaylar</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Personel</td>
+            <td>@x.Alici</td>
+            <td>@x.Takipkodu</td>
+            <td>@x.Tarih</td>
+            <td><a href="/Kargo/KargoTakip/@x.Takipkodu" class="btn btn-outline-warning">Detay</a></td>
+
+
+
+        </tr>
+
+    }
+</table>
+<a href="/Kargo/YeniKargo/" class="btn btn-primary">Yeni Kargo</a>
+
+
+

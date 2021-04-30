@@ -1,0 +1,30 @@
+﻿@model E_Ticaret.Models.Siniflar.BillPen
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Kalem Girişi</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.BillPenExp)
+    @Html.TextBoxFor(x => x.BillPenExp, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Amount)
+    @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.AmountPrice)
+    @Html.TextBoxFor(x => x.AmountPrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Total)
+    @Html.TextBoxFor(x => x.Total, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Billid)
+    @Html.TextBoxFor(x => x.Billid, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+
+</form>
+

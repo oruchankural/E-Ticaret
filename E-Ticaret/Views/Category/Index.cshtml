@@ -1,0 +1,37 @@
+﻿@using E_Ticaret.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+    <tr>
+        <td>
+        @x.CategoryName
+        </td>
+        <td><a href="/Category/KategoriSil/@x.CategoryID" class="btn btn-danger">Sil</a></td>
+        <td><a href="/Category/KategoriGetir/@x.CategoryID" class="btn btn-warning">Güncelle</a></td>
+    </tr>
+
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new {sayfa })
+, new PagedListRenderOptions
+{
+    LiElementClasses= new List<string>
+    {"page-link"}
+})
+<a href="/Category/KategoriEkle/" class="btn btn-primary">Kategori Ekle</a>
+

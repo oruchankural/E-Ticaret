@@ -1,0 +1,33 @@
+﻿@using E_Ticaret.Models.Siniflar
+@model List<Staff>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Departman Detay Sayfası</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman Adı:@ViewBag.d</li>
+</ol>
+<table class="table table-hober">
+    <tr>
+        <th>Personel ID</th>
+        <th>Personel Ad</th>
+        <th>Personel Soyad</th>
+        <th>Personel Satışları</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+
+
+        <tr>
+            <td>@x.StaffID</td>
+            <td>@x.StaffName</td>
+            <td>@x.StaffSurname</td>
+            <td><a href="/Departman/DepartmanPersonelSatis/@x.StaffID" class="btn btn-default" style="background-color:navajowhite">Satışlar</a></td>
+        </tr>
+    }
+</table>

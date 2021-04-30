@@ -1,0 +1,30 @@
+﻿@model E_Ticaret.Models.Siniflar.Customer
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Cari Güncelleme Sayfası</h2>
+<br />
+@using(Html.BeginForm("CariGuncelle","Customer",FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.CustomerID)
+    @Html.LabelFor(x => x.CustomerName)
+    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerName, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.CustomerSurname)
+    @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerSurname, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.CustomerCity)
+    @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CustoemrMail)
+    @Html.TextBoxFor(x => x.CustoemrMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+</div>
+}

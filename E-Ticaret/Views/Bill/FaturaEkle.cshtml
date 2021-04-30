@@ -1,0 +1,35 @@
+﻿@model E_Ticaret.Models.Siniflar.Bill
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Fatura Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.BillSerialnumber)
+    @Html.TextBoxFor(x => x.BillSerialnumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BillRownumber)
+    @Html.TextBoxFor(x => x.BillRownumber, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BillDate)
+    @Html.TextBoxFor(x => x.BillDate, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Time)
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Tax)
+    @Html.TextBoxFor(x => x.Tax, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Delivery)
+    @Html.TextBoxFor(x => x.Delivery, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.DeliveryArea)
+    @Html.TextBoxFor(x => x.DeliveryArea, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+
+</form>

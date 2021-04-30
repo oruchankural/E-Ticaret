@@ -1,0 +1,35 @@
+﻿@using E_Ticaret.Models.Siniflar
+@model List<Staff>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Personel ID</th>
+        <th>Personel Ad</th>
+        <th>Personel Soyad</th>
+        <th>Personel Görsel</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+          <td>@x.StaffID</td>
+          <td>@x.StaffName</td>
+          <td>@x.StaffSurname</td>
+          <td>
+              <img src="@x.StaffImage" style="width:100px; height:100px;"/>
+          </td>
+          <td>@x.Department.DepartmentName</td>
+            <td><a href="/Staff/PersonelGetir/@x.StaffID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Departman/DepartmanPersonelSatis/@x.StaffID" class="btn btn-default" style="background-color:lightcoral;color:white">Detaylar</a></td>
+        </tr>
+
+    }
+</table>
+<a href="/Staff/PersonelEkle/" class="btn btn-primary">Personel Ekle</a>

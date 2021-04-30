@@ -1,0 +1,38 @@
+﻿@using E_Ticaret.Models.Siniflar
+@model List<BillPen>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Fatura Kalemleri Sayfası</h2>
+<br />
+
+<table class="table table-hober">
+    <tr>
+        <th>ID</th>
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyatı</th>
+        <th>Tutar</th>
+
+
+    </tr>
+    @foreach (var x in Model)
+    {
+
+
+        <tr>
+            <td>@x.BillPenID</td>
+            <td>@x.BillPenExp</td>
+            <td>@x.Amount</td>
+            <td>@x.AmountPrice</td>
+            <td>@x.Total</td>
+           
+        </tr>
+    }
+</table>
+<a href="/Bill/YeniKalem/" class="btn btn-default" style="background-color:darksalmon">Yeni Kalem Girişi</a>
+
+

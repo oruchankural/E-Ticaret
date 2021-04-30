@@ -1,0 +1,47 @@
+﻿@using E_Ticaret.Models.Siniflar;
+@model List<Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+@using(Html.BeginForm("Index","Product",FormMethod.Get))
+{
+    <p>
+        Ürün Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara"/>
+    </p>
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+
+    <th>Ürün</th>
+    <th>Marka</th>
+    <th>Stok</th>
+    <th>Alış Fiyatı</th>
+    <th>Satış Fiyatı</th>
+    <th>Kategori</th>
+    <th>Sil</th>
+    <th>Güncelle</th>
+    <th>Satış Yap</th>
+    </tr>
+    @foreach(var u  in Model) {
+    <tr>
+
+        <td>@u.ProductName</td>
+        <td>@u.Marka</td>
+        <td>@u.Stok</td>
+        <td>@u.PurchasePrice ₺</td>
+        <td>@u.SalePrice ₺</td>
+        <td>@u.Category.CategoryName</td>
+        <td><a href="/Product/UrunSil/@u.ProductID" class="btn btn-danger">SİL</a></td>
+        <td><a href="/Product/UrunGetir/@u.ProductID" class="btn btn-warning">GÜNCELLE</a></td>
+        <td><a href="/Product/SatisYap/@u.ProductID" class="btn btn-info">Satış</a></td>
+
+    </tr>
+    }
+</table>
+
+<a href="/Product/YeniUrun/" class="btn btn-primary">Yeni Ürün</a>
+

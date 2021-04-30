@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<br />
+<br />
+<button class="btn btn-primary" id="btn1">Button1</button>
+<button class="btn btn-danger" id="btn2">Button2</button>
+<button class="btn btn-warning" id="btn3">Button3</button>
+<button class="btn btn-info" id="btn4">Button4</button>
+
+<script>
+    $('#btn1').click(function () {
+        swal("Hoş geldin!");
+    });
+</script>
+
+<script>
+    $('#btn2').click(function () {
+        swal("Başlık", "...Metin");
+    });
+</script>
+<script>
+    $('#btn3').click(function () {
+        swal("Good job!", "You clicked the button!", "success");
+    });
+</script>
+<script>
+    $('#btn4').click(function () {
+        swal({
+            title: "Good job!",
+            text: "You clicked the button!",
+            icon: "success",
+        });
+    });
+</script>
+
